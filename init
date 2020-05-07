@@ -1,8 +1,21 @@
 #! /bin/sh
 
+echo "####################################################"
+echo "######### STARTED INIT ($(date +%Y%m%d%H%M%S))    #########"
+echo "####################################################"
+
 echo "${TIMEZONE}" > /etc/timezone
+
+# Create samba user
+grep ${SMB_USERNAME} /etc/passwd &> /dev/null || useradd --no-log-init --no-create-home --shell /sbin/nologin "${SMB_USERNAME}" > /dev/null
+echo -e "${SMB_PASSWORD}\n${SMB_PASSWORD}" | smbpasswd -a "${SMB_USERNAME}" > /dev/null
+echo "Samba login: ${SMB_USERNAME}:${SMB_PASSWORD}"
 
 /usr/sbin/smbd \
   --foreground \
   --log-stdout \
   --port=445
+
+echo "####################################################"
+echo "######### STOPPED INIT ($(date +%Y%m%d%H%M%S))    #########"
+echo "####################################################"

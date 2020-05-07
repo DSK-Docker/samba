@@ -6,6 +6,8 @@ LABEL maintainer "Dschinghis Kahn"
 ######### DEFAULT VALUES                 ###########
 ####################################################
 ENV TIMEZONE=UTC
+ENV SMB_USERNAME=samba
+ENV SMB_PASSWORD=samba
 
 ####################################################
 ######### INSTALLING BASE STUFF          ###########

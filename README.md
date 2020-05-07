@@ -6,6 +6,8 @@ Docker image for samba.
 docker create \
   --name=samba \
   -e TIMEZONE=<<TIMEZONE|default(UTC)>> \
+  -e SMB_USERNAME=<<USERNAME|default(samba)>> \
+  -e SMB_PASSWORD=<<PASSWORD|default(samba)>> \
   -p 137:137/udp \
   -p 138:138/udp \
   -p 139:139 \
