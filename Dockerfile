@@ -34,4 +34,6 @@ EXPOSE 138/UDP
 EXPOSE 139/TCP
 EXPOSE 445/TCP
 
+HEALTHCHECK CMD nc -z localhost 445 || exit 1
+
 CMD ["/init"]
