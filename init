@@ -5,6 +5,7 @@ echo "######### STARTED INIT ($(date +%Y%m%d%H%M%S))    #########"
 echo "####################################################"
 
 echo "${TIMEZONE}" > /etc/timezone
+cp "/usr/share/zoneinfo/${TIMEZONE}" /etc/localtime
 
 # Create samba user
 grep ${SMB_USERNAME} /etc/passwd &> /dev/null || useradd --no-log-init --no-create-home --shell /sbin/nologin "${SMB_USERNAME}" > /dev/null
