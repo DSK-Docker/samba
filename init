@@ -4,7 +4,7 @@ echo "####################################################"
 echo "######### STARTED INIT ($(date +%Y%m%d%H%M%S))    #########"
 echo "####################################################"
 
-ln --force --no-dereference --symbolic /usr/share/zoneinfo/"${TIMEZONE}" /etc/localtime
+ln -f -n -s /usr/share/zoneinfo/"${TIMEZONE}" /etc/localtime
 echo "${TIMEZONE}" > /etc/timezone
 
 # Create samba user
