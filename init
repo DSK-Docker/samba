@@ -14,7 +14,7 @@ echo "Samba login: ${SMB_USERNAME}:${SMB_PASSWORD}"
 
 /usr/sbin/smbd \
   --foreground \
-  --log-stdout \
+#  --log-stdout \
   --port=445
 
 echo "####################################################"
